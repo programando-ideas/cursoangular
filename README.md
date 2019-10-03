@@ -1,2 +1,3 @@
-# cursoangular
-Curso de Angular desde cero
+# Bienvenidos al Curso "Angular desde cero" de Programando Ideas
+
+
