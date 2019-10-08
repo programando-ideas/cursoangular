@@ -1,0 +1,15 @@
+<div style="border: 1px solid red">
+    <h3>Componente 1</h3>
+    <div>
+        <input #inputCiudad />
+        <button (click)="agregarCiudad(inputCiudad.value)">
+            Agregar Ciudad
+        </button>
+    </div>
+    <ul>
+        <li *ngFor="let c of ciudades">
+            {{c}}
+            <button (click)="borrarCiudad(c)">Borrar</button>
+        </li>
+    </ul>
+</div>

@@ -16,6 +16,8 @@ import { Component } from '@angular/core';
   //                        ellos JavaScript
   template: `
     <h1 class="estilo1">Curso de Angular de {{title}}</h1>
+    <app-componente1></app-componente1>
+    <app-componente2></app-componente2>
   `,
   // Hoja de estilo asociada al componente
   // Todos los estilos definidos aqui, sobrescriben los estilos globales styles.css"
