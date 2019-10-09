@@ -1,0 +1,11 @@
+<div style="border: 1px solid blue; margin-top: 20px;">
+    <h3>Componente 2</h3>
+    <div>
+        <button (click)="imgGrande()">Img Grande</button>
+        <button (click)="imgChica()">Img Chica</button>
+    </div>
+    <div>
+        <img [style.width.px]="imgWidth"
+             [src]="imgSrc">
+    </div>
+</div>
