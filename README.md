@@ -8,7 +8,7 @@
   * 1.2: [Instalación/Configuración + 1er Proyecto](https://youtu.be/gYA9xmnf0oY)
   * 1.3: Template Syntax
     * 1.3.1: [Parte I](https://youtu.be/nVg_qh64kCA)
-    * 1.3.2: [Parte II](https://youtu.be/nVg_qh64kCA)
+    * 1.3.2: [Parte II](https://youtu.be/S61lUEC55Io)
   * 1.4 Formularios (Proximamente)
   * 1.5 Ruteo (Proximamente)
   
