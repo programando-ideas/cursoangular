@@ -1,0 +1,20 @@
+<div style="border: 1px solid green; margin-top: 20px;">
+    <h3>Componente 3</h3>
+    <!-- Nombre -->
+    <p>
+        <label for="nombre">Nombre: </label>
+        <input [(ngModel)]="persona.nombre" [style.background-color]="persona.nombre ? 'LightGreen' : 'Red'" id="nombre">
+    </p>
+
+    <!-- Apellido -->
+    <p>
+        <label for="apellido">Apellido: </label>
+        <input [(ngModel)]="persona.apellido" [style.background-color]="persona.apellido ? 'LightGreen' : 'Red'" id="apellido">
+    </p>
+
+    <!-- Edad -->
+    <p>
+        <label for="edad">Edad: </label>
+        <input [(ngModel)]="persona.edad" [style.background-color]="persona.edad ? 'LightGreen' : 'Red'" id="edad">
+    </p>
+</div>
