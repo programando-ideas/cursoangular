@@ -1,4 +1,4 @@
-<div style="border: 1px solid green; margin-top: 20px;">
+<div style="border: 1px solid green; margin-top: 20px; margin-bottom: 100px;">
     <h3>Componente 3</h3>
     <!-- Nombre -->
     <p>
@@ -17,4 +17,25 @@
         <label for="edad">Edad: </label>
         <input [(ngModel)]="persona.edad" [style.background-color]="persona.edad ? 'LightGreen' : 'Red'" id="edad">
     </p>
+
+    <!-- ngIf -->
+    <div *ngIf="persona.nombre && persona.apellido" style="border: 1px solid red">
+        <span>
+            Hola {{persona.nombre}} {{persona.apellido}} de {{persona.edad}} años :D
+        </span>
+    </div>
+
+    <!-- Pipe | -->
+    <p>
+        <span [ngClass]="persona.nombre && persona.apellido ? 'estilo1' : 'estilo2'">
+             Objeto en formato json {{ persona | json }}
+        </span>
+    </p>
+
+    <div style="background-color: darkgray;">
+        <h3>Fechas</h3>
+        <p>Hoy es {{hoy | date}}</p>
+        <p>En otro formato {{hoy | date:'fullDate'}}</p>
+        <p>La hora es {{hoy | date:'h:mm a z'}}</p>
+    </div>
 </div>

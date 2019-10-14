@@ -8,6 +8,7 @@ import { Persona } from '../models/persona';
 })
 export class Componente3Component implements OnInit {
   persona: Persona;
+  hoy = Date.now();
   constructor() {
     this.persona = new Persona();
   }
