@@ -11,7 +11,7 @@
     * 1.3.2: [Parte II](https://youtu.be/S61lUEC55Io)
   * 1.4 Formularios
     * 1.4.1: [Parte I - Template-driven Forms](https://youtu.be/IsmxfBL2Mh0)
-    * 1.4.2: Parte II - Reactive Forms (Proximamente)
+    * 1.4.2: [Parte II - Reactive Forms](https://youtu.be/BOaaOSa9KF8)
   * 1.5 Ruteo (Proximamente)
   
 * Capítulo 2 (Construcción de aplicación Angular + API [node.js/asp.net core 3])
