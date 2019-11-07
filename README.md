@@ -12,10 +12,13 @@
   * 1.4 Formularios
     * 1.4.1: [Parte I - Template-driven Forms](https://youtu.be/IsmxfBL2Mh0)
     * 1.4.2: [Parte II - Reactive Forms](https://youtu.be/BOaaOSa9KF8)
-  * 1.5 Ruteo (Proximamente)
+  * 1.5: [Ruteo y Navegación](https://youtu.be/JbtvuQDKvOU)
   
 * Capítulo 2 (Construcción de aplicación Angular + API [node.js/asp.net core 3])
-  * (PROXIMAMENTE)
+  * 2.1: Login + JWT
+    * 2.1.1: API Asp.Net Core 3.0 (Proximamente)
+    * 2.1.2: API Node.js (Proximamente)
+    * 2.1.3: Cliente Angular (Proximamente)
 
 
  
