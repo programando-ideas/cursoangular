@@ -19,7 +19,12 @@
     * 2.1.1: [Parte I - API Asp.Net Core 3.0](https://youtu.be/qyFQO8n-OGk)
     * 2.1.2: Parte II - API Node.js (Proximamente)
     * 2.1.3: Parte III - Cliente Angular (Proximamente)
-
+  * 2.2: Configuraciones varias del proyecto
+    * 2.2.1 Integrar "Angular Material" al cliente Angular (Proximamente)
+    * 2.2.2 Conexión de las APIs con MariaDB (Proximamente)
+  * 2.3: Entidad "Clientes" --> Operaciones CRUD
+    * 2.3.1 Lista y Alta de clientes (Proximamente)
+    * 2.3.2 Actualización y Eliminación de clientes (Proximamente)
 
  
  
