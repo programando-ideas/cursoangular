@@ -16,9 +16,9 @@
   
 * Capítulo 2 (Construcción de aplicación Angular + API [node.js/asp.net core 3])
   * 2.1: Login + JWT
-    * 2.1.1: API Asp.Net Core 3.0 (Proximamente)
-    * 2.1.2: API Node.js (Proximamente)
-    * 2.1.3: Cliente Angular (Proximamente)
+    * 2.1.1: [Parte I - API Asp.Net Core 3.0] (https://youtu.be/qyFQO8n-OGk)
+    * 2.1.2: Parte II - API Node.js (Proximamente)
+    * 2.1.3: Parte III - Cliente Angular (Proximamente)
 
 
  
