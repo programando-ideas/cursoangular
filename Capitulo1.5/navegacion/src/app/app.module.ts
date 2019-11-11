@@ -12,6 +12,7 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 @NgModule({
   declarations: [
     AppComponent,
+    NavmenuComponent,
     HomeComponent,
     Pagina1Component,
     Pagina2Component,

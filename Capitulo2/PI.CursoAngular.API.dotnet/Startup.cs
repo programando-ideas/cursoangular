@@ -34,8 +34,8 @@ namespace PI.CursoAngular.API.dotnet
             //Autenticacion
             services.AddAuthentication(options =>
              {
-                //AuthenticationScheme = "Bearer"
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                 //AuthenticationScheme = "Bearer"
+                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                  options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
                  options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
              }).AddJwtBearer(jwtBearerOptions =>
@@ -56,15 +56,15 @@ namespace PI.CursoAngular.API.dotnet
                      }
                  };
 
-                //https://tools.ietf.org/html/rfc7519#page-9
-                jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters()
+                 //https://tools.ietf.org/html/rfc7519#page-9
+                 jwtBearerOptions.TokenValidationParameters = new TokenValidationParameters()
                  {
                      SaveSigninToken = true,
                      ValidateActor = true,
                      ValidateIssuer = true, //Issuer: Emisor
-                    ValidateAudience = true, //Audience: Son los destinatarios del token
-                    ValidateLifetime = true, //Lifetime: Tiempo de vida del token
-                    ValidateIssuerSigningKey = true,
+                     ValidateAudience = true, //Audience: Son los destinatarios del token
+                     ValidateLifetime = true, //Lifetime: Tiempo de vida del token
+                     ValidateIssuerSigningKey = true,
                      ValidIssuer = Configuration["ApiAuth:Issuer"],
                      ValidAudience = Configuration["ApiAuth:Audience"],
                      IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["ApiAuth:SecretKey"]))
@@ -75,7 +75,7 @@ namespace PI.CursoAngular.API.dotnet
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
+                    builder => builder.WithOrigins("http://localhost:50000")
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
