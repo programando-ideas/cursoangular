@@ -1,1 +1,9 @@
-<h1>HOME!!</h1>
+<div style="border: 1px red solid;">
+    <h2>Página Home</h2>
+    <button (click)="navegar()">Navegar</button>
+
+    <a [routerLink]="['/pagina1', { id: 1, param: 'prueba' }]">
+        Página 1
+    </a>
+
+</div>
