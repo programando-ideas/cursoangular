@@ -17,15 +17,17 @@
 * Capítulo 2 (Construcción de aplicación Angular + API [node.js/asp.net core 3])
   * 2.1: Login + JWT
     * 2.1.1: [Parte I - API Asp.Net Core 3.0](https://youtu.be/qyFQO8n-OGk)
-    * 2.1.2: Parte II - API Node.js (Proximamente)
+    * 2.1.2: [Parte II - API Node.js](https://youtu.be/oKI6JVJQeYk)
     * 2.1.3: Parte III - Cliente Angular (Proximamente)
   * 2.2: Configuraciones varias del proyecto
-    * 2.2.1 Integrar "Angular Material" al cliente Angular (Proximamente)
-    * 2.2.2 Conexión de las APIs con MariaDB (Proximamente)
+    * 2.2.1 Configuración del cliente Angular (Proximamente)
+    * 2.2.2 Configuración de las APIs (Proximamente)
   * 2.3: Entidad "Clientes" --> Operaciones CRUD
     * 2.3.1 Lista y Alta de clientes (Proximamente)
     * 2.3.2 Actualización y Eliminación de clientes (Proximamente)
 
  
- 
+ ##
+ **Programando Ideas 2019**
+ ##
  <a href="https://www.buymeacoffee.com/CFVh8qe" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
