@@ -12,22 +12,22 @@ router.get('/lista', authGuard.Authorize, async function(req, res, next) {
         return res.status(500).send({ message: 'Los datos del usuario son incorrectos.' });
 
     res.send(JSON.stringify([{
-            Nombre: "Cliente 1",
-            Apellido: "Apellido 1",
-            Edad: CalcularEdad(new Date(1956, 3, 6)),
-            FechaDeNacimiento: convertDate(new Date(1956, 3, 6))
+            nombre: "Cliente 1",
+            apellido: "Apellido 1",
+            edad: CalcularEdad(new Date(1956, 3, 6)),
+            fechaDeNacimiento: convertDate(new Date(1956, 3, 6))
         },
         {
-            Nombre: "Cliente 2",
-            Apellido: "Apellido 2",
-            Edad: CalcularEdad(new Date(1988, 12, 25)),
-            FechaDeNacimiento: convertDate(new Date(1988, 12, 25))
+            nombre: "Cliente 2",
+            apellido: "Apellido 2",
+            edad: CalcularEdad(new Date(1988, 12, 25)),
+            fechaDeNacimiento: convertDate(new Date(1988, 12, 25))
         },
         {
-            Nombre: "Cliente 3",
-            Apellido: "Apellido 3",
-            Edad: CalcularEdad(new Date(1980, 6, 6)),
-            FechaDeNacimiento: convertDate(new Date(1980, 6, 6))
+            nombre: "Cliente 3",
+            apellido: "Apellido 3",
+            edad: CalcularEdad(new Date(1980, 6, 6)),
+            fechaDeNacimiento: convertDate(new Date(1980, 6, 6))
         }
     ], null, 4));
 });
