@@ -18,7 +18,7 @@
   * 2.1: Login + JWT
     * 2.1.1: [Parte I - API Asp.Net Core 3.0](https://youtu.be/qyFQO8n-OGk)
     * 2.1.2: [Parte II - API Node.js](https://youtu.be/oKI6JVJQeYk)
-    * 2.1.3: Parte III - Cliente Angular (Proximamente)
+    * 2.1.3: [Parte III - Cliente Angular](https://youtu.be/1BYDxq0S-WQ)
   * 2.2: Configuraciones varias del proyecto
     * 2.2.1 Configuración del cliente Angular (Proximamente)
     * 2.2.2 Configuración de las APIs (Proximamente)
