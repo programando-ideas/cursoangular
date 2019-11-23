@@ -1,0 +1,14 @@
+<table>
+    <thead>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>FechaDeNacimiento</th>
+    </thead>
+    <tbody *ngFor="let cli of clientes">
+        <th>{{ cli.nombre }}</th>
+        <th>{{ cli.apellido }}</th>
+        <th>{{ cli.edad }}</th>
+        <th>{{ cli.fechaDeNacimiento }}</th>
+    </tbody>
+</table>

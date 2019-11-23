@@ -1,0 +1,15 @@
+<form [formGroup]="formLogin" (ngSubmit)="Login()">
+    <div>
+        <label>Usuario</label>
+        <input type="text" formControlName="usuario">
+    </div>
+    <div>
+        <label>Contraseña</label>
+        <input type="password" formControlName="password">
+    </div>
+    <div>
+        <button [disabled]="!formLogin.valid" type="submit">
+            Iniciar Sesión
+        </button>
+    </div>
+</form>
