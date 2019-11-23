@@ -75,7 +75,11 @@ namespace PI.CursoAngular.API.dotnet
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins("http://localhost:50000")
+                    builder => builder.WithOrigins(new[] 
+                    { 
+                        "http://localhost:4200",
+                        "http://localhost:50000" 
+                    })
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
