@@ -20,8 +20,9 @@
     * 2.1.2: [Parte II - API Node.js](https://youtu.be/oKI6JVJQeYk)
     * 2.1.3: [Parte III - Cliente Angular](https://youtu.be/1BYDxq0S-WQ)
   * 2.2: Configuraciones varias del proyecto
-    * 2.2.1 Configuración del cliente Angular (Proximamente)
-    * 2.2.2 Configuración de las APIs (Proximamente)
+    * 2.2.1 Servicios storage, security y data (Proximamente)
+    * 2.2.2 Angular Material (Proximamente)
+    * 2.2.3 Configuración de las APIs (Proximamente)
   * 2.3: Entidad "Clientes" --> Operaciones CRUD
     * 2.3.1 Lista y Alta de clientes (Proximamente)
     * 2.3.2 Actualización y Eliminación de clientes (Proximamente)
