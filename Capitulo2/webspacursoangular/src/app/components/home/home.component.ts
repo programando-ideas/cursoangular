@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ICliente } from 'src/app/models/icliente';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -12,20 +12,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   subRef$: Subscription;
 
   constructor(
-    private http: HttpClient) { }
+    private dataService: DataService
+  ) { }
 
   ngOnInit() {
-    let httpHeaders: HttpHeaders = new HttpHeaders();
-    const token = sessionStorage.getItem('token');
-    console.log('get token', token);
-
-    httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + token);
-
-    this.subRef$ = this.http.get<ICliente[]>('http://localhost:50000/api/clientes/lista',
-      {
-        headers: httpHeaders,
-        observe: 'response'
-      }).subscribe(res => {
+    const url = 'http://localhost:50000/api/clientes/lista';
+    this.subRef$ = this.dataService.get<ICliente[]>(url)
+    .subscribe(res => {
         this.clientes = res.body;
       },
         err => {

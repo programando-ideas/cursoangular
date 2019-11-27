@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ILogin } from 'src/app/models/ilogin';
 import { IResponse } from 'src/app/models/iresponse';
 import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
+import { SecurityService } from 'src/app/services/security.service';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,13 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     formBuilder: FormBuilder,
-    private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private dataService: DataService,
+    private securityService: SecurityService
   ) {
+
+    this.securityService.LogOff();
+
     this.formLogin = formBuilder.group({
       usuario: ['', Validators.required],
       password: ['', Validators.required]
@@ -34,16 +39,17 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: this.formLogin.value.password,
     };
 
-    this.subRef$ = this.http.post<IResponse>('http://localhost:50000/api/identidad/login',
-        usuarioLogin, { observe: 'response' })
-        .subscribe(res => {
-          const token = res.body.response;
-          console.log('token', token);
-          sessionStorage.setItem('token', token);
-          this.router.navigate(['/home']);
-        }, err => {
-          console.log('Error en el login', err);
-        });
+    const url = 'http://localhost:50000/api/identidad/login';
+    this.subRef$ = this.dataService.post<IResponse>(url,
+      usuarioLogin)
+      .subscribe(res => {
+        const token = res.body.response;
+        console.log('token', token);
+        this.securityService.SetAuthData(token);
+        this.router.navigate(['/home']);
+      }, err => {
+        console.log('Error en el login', err);
+      });
   }
 
   ngOnDestroy() {
