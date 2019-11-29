@@ -10,7 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 export class HomeComponent implements OnInit, OnDestroy {
   clientes: ICliente[];
   subRef$: Subscription;
-
+  displayedColumns: string[] = ['nombre', 'apellido', 'edad', 'fechaDeNacimiento'];
   constructor(
     private dataService: DataService
   ) { }

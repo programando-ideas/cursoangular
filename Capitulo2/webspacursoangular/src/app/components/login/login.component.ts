@@ -6,6 +6,7 @@ import { IResponse } from 'src/app/models/iresponse';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { SecurityService } from 'src/app/services/security.service';
+import { ErrorStateMatcher1 } from '../error-state-matcher1';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ import { SecurityService } from 'src/app/services/security.service';
 export class LoginComponent implements OnInit, OnDestroy {
   formLogin: FormGroup;
   subRef$: Subscription;
+  matcher = new ErrorStateMatcher1();
 
   constructor(
     formBuilder: FormBuilder,
@@ -50,6 +52,11 @@ export class LoginComponent implements OnInit, OnDestroy {
       }, err => {
         console.log('Error en el login', err);
       });
+  }
+
+  hasError(nombreControl: string, validacion: string) {
+    const control = this.formLogin.get(nombreControl);
+    return control.hasError(validacion);
   }
 
   ngOnDestroy() {

@@ -1,1 +1,13 @@
-<p>navmenu works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-button [matMenuTriggerFor]="clientes">Clientes</button>
+        <mat-menu #clientes="matMenu">
+            <button mat-menu-item>Listar</button>
+            <button mat-menu-item>Agregar</button>
+        </mat-menu>
+        <span class="toolbar-spacer"></span>
+        <button mat-button (click)="LogOut()">
+            <mat-icon aria-hidden="false" aria-label="Salir">logout</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>

@@ -16,7 +16,7 @@ export class SecurityService {
 
     if (this.storeService.retrieve('IsAuthorized') !== '') {
       this.IsAuthorized = this.storeService.retrieve('IsAuthorized');
-      this.authSource.next(true);
+      this.authSource.next(this.IsAuthorized);
     }
   }
 
@@ -41,6 +41,6 @@ export class SecurityService {
   public LogOff() {
     this.ResetAuthData();
 
-    this.authSource.next(true);
+    this.authSource.next(false);
   }
 }

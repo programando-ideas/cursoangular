@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SecurityService } from 'src/app/services/security.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navmenu',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavmenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private secutiryService: SecurityService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  LogOut() {
+    this.secutiryService.LogOff();
+    this.router.navigate(['/']);
   }
 
 }
