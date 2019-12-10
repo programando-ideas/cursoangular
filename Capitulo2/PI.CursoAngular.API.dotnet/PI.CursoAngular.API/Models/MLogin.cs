@@ -1,4 +1,4 @@
-﻿namespace PI.CursoAngular.API.dotnet.Models
+﻿namespace PI.CursoAngular.API.Models
 {
     public class MLogin
     {

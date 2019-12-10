@@ -3,7 +3,7 @@ using System;
 using System.Reflection;
 using System.Text;
 
-namespace PI.CursoAngular.API.dotnet.Controllers
+namespace PI.CursoAngular.API.Controllers
 {
     [Route("api/info")]
     [ApiController]

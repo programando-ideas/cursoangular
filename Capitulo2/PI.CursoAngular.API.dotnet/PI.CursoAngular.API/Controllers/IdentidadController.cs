@@ -6,9 +6,9 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using PI.CursoAngular.API.dotnet.Models;
+using PI.CursoAngular.API.Models;
 
-namespace PI.CursoAngular.API.dotnet.Controllers
+namespace PI.CursoAngular.API.Controllers
 {
     [Route("api/identidad")]
     [ApiController]

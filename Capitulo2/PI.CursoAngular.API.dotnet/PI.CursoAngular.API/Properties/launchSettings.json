@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    " PI.CursoAngular.API.dotnet": {
+    " PI.CursoAngular.API": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/info",

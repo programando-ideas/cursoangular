@@ -1,4 +1,4 @@
-﻿namespace PI.CursoAngular.API.dotnet
+﻿namespace PI.CursoAngular.API
 {
     public static class Constantes
     {

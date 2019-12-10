@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace PI.CursoAngular.API.dotnet
+namespace PI.CursoAngular.API
 {
     public class Program
     {

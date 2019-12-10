@@ -1,22 +1,29 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using PI.CursoAngular.Repo.MariaDB;
+using PI.CursoAngular.Repo.MariaDB.DBModelClientes;
+using PI.CursoAngular.Repo.MariaDB.Interfaces;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Serilog;
 
 // using static: https://docs.microsoft.com/es-mx/dotnet/csharp/language-reference/keywords/using-static
-using static PI.CursoAngular.API.dotnet.Constantes;
+using static PI.CursoAngular.API.Constantes;
 
-namespace PI.CursoAngular.API.dotnet
+namespace PI.CursoAngular.API
 {
     public class Startup
     {
@@ -84,6 +91,21 @@ namespace PI.CursoAngular.API.dotnet
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
+
+            //Mapeo de entidades db <-> model
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            // Base de datos MariaDB
+            string strCnnSQL = Configuration["connectionString"].ToString();
+            services.AddDbContextPool<curso_angularContext>(
+            options => options.UseMySql(strCnnSQL,
+                      mysqlOptions =>
+                      {
+                          mysqlOptions.ServerVersion(new Version(10, 3, 13), ServerType.MariaDb);
+                      }));
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IClientesRepository, ClientesRepository>();
 
             //LOGs - Serilog RollingLog
             Log.Logger = new LoggerConfiguration()
