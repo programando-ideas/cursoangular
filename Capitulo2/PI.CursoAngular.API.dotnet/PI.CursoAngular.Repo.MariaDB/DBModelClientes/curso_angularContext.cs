@@ -60,7 +60,9 @@ namespace PI.CursoAngular.Repo.MariaDB.DBModelClientes
                 entity.HasOne(d => d.IdclienteNavigation)
                     .WithMany(p => p.CliDirecciones)
                     .HasForeignKey(d => d.Idcliente)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    //https://docs.microsoft.com/en-us/ef/core/saving/cascade-delete#delete-behaviors
+                    //.OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("clidirecciones_fk");
             });
 
@@ -94,7 +96,7 @@ namespace PI.CursoAngular.Repo.MariaDB.DBModelClientes
                 entity.HasOne(d => d.IdclienteNavigation)
                     .WithMany(p => p.CliTelefonos)
                     .HasForeignKey(d => d.Idcliente)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("clitelefonos_fk");
             });
 
