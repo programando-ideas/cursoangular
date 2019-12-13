@@ -16,7 +16,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     console.log(this.scrHeight, this.scrWidth);
   }
 
-  constructor() { }
+  constructor() {
+    this.getScreenSize();
+  }
+
   ngOnInit() { }
   ngOnDestroy() { }
 }
