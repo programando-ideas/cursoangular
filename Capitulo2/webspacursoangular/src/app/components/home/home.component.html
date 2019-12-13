@@ -1,21 +1,15 @@
-<table mat-table [dataSource]="clientes" class="mat-elevation-z8" style="width: 100%;">
-    <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let cli"> {{cli.nombre}} </td>
-    </ng-container>
-    <ng-container matColumnDef="apellido">
-        <th mat-header-cell *matHeaderCellDef> Apellido </th>
-        <td mat-cell *matCellDef="let cli"> {{cli.apellido}} </td>
-    </ng-container>
-    <ng-container matColumnDef="edad">
-        <th mat-header-cell *matHeaderCellDef> Edad </th>
-        <td mat-cell *matCellDef="let cli"> {{cli.edad}} </td>
-    </ng-container>
-    <ng-container matColumnDef="fechaDeNacimiento">
-        <th mat-header-cell *matHeaderCellDef> Fecha de Nac. </th>
-        <td mat-cell *matCellDef="let cli"> {{cli.fechaDeNacimiento}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div fxLayout="row" fxLayoutAlign="center center" [style.height.px]="scrHeight">
+    <mat-card class="card-home" style="background-color: whitesmoke;">
+        <mat-card-header>
+            <div mat-card-avatar class="card-home-avatar"></div>
+            <mat-card-title>Curso de Angular</mat-card-title>
+            <mat-card-subtitle>de Programando Ideas</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://raw.githubusercontent.com/programando-ideas/cursoangular/master/imagenes/curso_angular.PNG" alt="Programando Ideas">
+        <mat-card-content>
+            <p>
+                <a href="youtube.com/programandoideas">Canal de YouTube</a>
+            </p>
+        </mat-card-content>
+    </mat-card>
+</div>

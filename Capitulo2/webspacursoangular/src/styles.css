@@ -27,3 +27,15 @@ mat-card-content {
 .toolbar-spacer {
     flex: 1 1 auto;
 }
+
+
+/* HOME */
+
+.card-home {
+    max-width: 60%;
+}
+
+.card-home-avatar {
+    background-image: url('https://raw.githubusercontent.com/programando-ideas/cursoangular/master/imagenes/IconoCanal_Blanco.png');
+    background-size: cover;
+}

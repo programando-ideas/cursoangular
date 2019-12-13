@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ILogin } from 'src/app/models/ilogin';
@@ -16,14 +16,24 @@ export class LoginComponent implements OnInit, OnDestroy {
   formLogin: FormGroup;
   subRef$: Subscription;
   matcher = new ErrorStateMatcher1();
+  scrHeight: any;
+  scrWidth: any;
 
+  // HostListener: https://angular.io/api/core/HostListener
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+    this.scrHeight = window.innerHeight;
+    this.scrWidth = window.innerWidth;
+    console.log(this.scrHeight, this.scrWidth);
+  }
+  
   constructor(
     formBuilder: FormBuilder,
     private router: Router,
     private dataService: DataService,
     private securityService: SecurityService
   ) {
-
+    this.getScreenSize();
     this.securityService.LogOff();
 
     this.formLogin = formBuilder.group({

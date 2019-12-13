@@ -12,6 +12,9 @@ import { NavmenuComponent } from './components/navmenu/navmenu.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './modules/material.module';
+import { CliListaComponent } from './components/clientes/cli-lista.component';
+import { CliAddComponent } from './components/clientes/cli-add.component';
+import { CliEditComponent } from './components/clientes/cli-edit.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { MaterialModule } from './modules/material.module';
     LoginComponent,
     HomeComponent,
     NavmenuComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CliListaComponent,
+    CliAddComponent,
+    CliEditComponent
   ],
   imports: [
     BrowserModule,

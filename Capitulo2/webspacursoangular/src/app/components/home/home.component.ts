@@ -1,34 +1,22 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ICliente } from 'src/app/models/icliente';
-import { Subscription } from 'rxjs';
-import { DataService } from 'src/app/services/data.service';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  clientes: ICliente[];
-  subRef$: Subscription;
-  displayedColumns: string[] = ['nombre', 'apellido', 'edad', 'fechaDeNacimiento'];
-  constructor(
-    private dataService: DataService
-  ) { }
+  scrHeight: any;
+  scrWidth: any;
 
-  ngOnInit() {
-    const url = 'http://localhost:50000/api/clientes/lista';
-    this.subRef$ = this.dataService.get<ICliente[]>(url)
-    .subscribe(res => {
-        this.clientes = res.body;
-      },
-        err => {
-          console.log('Error al recuperar los clientes', err);
-        });
-  }
-  ngOnDestroy() {
-    if (this.subRef$) {
-      this.subRef$.unsubscribe();
-    }
+  // HostListener: https://angular.io/api/core/HostListener
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+    this.scrHeight = window.innerHeight;
+    this.scrWidth = window.innerWidth;
+    console.log(this.scrHeight, this.scrWidth);
   }
 
+  constructor() { }
+  ngOnInit() { }
+  ngOnDestroy() { }
 }

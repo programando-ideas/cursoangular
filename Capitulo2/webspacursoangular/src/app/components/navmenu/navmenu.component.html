@@ -1,8 +1,11 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
+        <button mat-button [routerLink]="['/home']">
+            <mat-icon aria-hidden="false" aria-label="Home">home</mat-icon>
+        </button>
         <button mat-button [matMenuTriggerFor]="clientes">Clientes</button>
         <mat-menu #clientes="matMenu">
-            <button mat-menu-item>Listar</button>
+            <button mat-menu-item [routerLink]="['/clilista']">Lista</button>
             <button mat-menu-item>Agregar</button>
         </mat-menu>
         <span class="toolbar-spacer"></span>

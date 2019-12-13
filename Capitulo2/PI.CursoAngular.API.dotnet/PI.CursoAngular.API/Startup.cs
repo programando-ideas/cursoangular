@@ -85,7 +85,7 @@ namespace PI.CursoAngular.API
                     builder => builder.WithOrigins(new[] 
                     { 
                         "http://localhost:4200",
-                        "http://localhost:50000" 
+                        "http://localhost:5500" 
                     })
                     .AllowAnyMethod()
                     .AllowAnyHeader()

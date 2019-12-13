@@ -1,29 +1,34 @@
-<div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 50px;">
-    <mat-card fxFlex="500px" fxFlex.xs="100%">
-        <mat-card-title>Login</mat-card-title>
-        <mat-card-content>
-            <form [formGroup]="formLogin" (ngSubmit)="Login()">
-                <p>
-                    <mat-form-field>
-                        <input matInput placeholder="Usuario" type="text" formControlName="usuario" [errorStateMatcher]="matcher">
-                        <mat-error *ngIf="hasError('usuario', 'required')">
-                            Ingrese el usuario
-                        </mat-error>
-                    </mat-form-field>
-                </p>
-                <p>
-                    <mat-form-field>
-                        <input matInput placeholder="Contraseña" type="password" formControlName="password">
-                        <mat-error *ngIf="hasError('password', 'required')">
-                            Ingrese la contraseña
-                        </mat-error>
-                    </mat-form-field>
-                </p>
-                <div class="button">
-                    <button mat-raised-button [disabled]="!formLogin.valid" color="primary" type="submit">Iniciar
-                        Sesión</button>
-                </div>
-            </form>
-        </mat-card-content>
-    </mat-card>
+<div fxLayout="column" fxLayoutGap="20px" fxLayoutAlign="center center" [style.height.px]="scrHeight">
+    <div>
+        <img style="width: 250px;" src="https://raw.githubusercontent.com/programando-ideas/cursoangular/master/imagenes/programando-ideas.png" alt="Programando Ideas">
+    </div>
+    <div class="mat-elevation-z8">
+        <mat-card fxFlex="500px" fxFlex.xs="100%">
+            <mat-card-title>Login</mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="formLogin" (ngSubmit)="Login()">
+                    <p>
+                        <mat-form-field>
+                            <input matInput placeholder="Usuario" type="text" formControlName="usuario" [errorStateMatcher]="matcher">
+                            <mat-error *ngIf="hasError('usuario', 'required')">
+                                Ingrese el usuario
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <mat-form-field>
+                            <input matInput placeholder="Contraseña" type="password" formControlName="password">
+                            <mat-error *ngIf="hasError('password', 'required')">
+                                Ingrese la contraseña
+                            </mat-error>
+                        </mat-form-field>
+                    </p>
+                    <div class="button">
+                        <button mat-raised-button [disabled]="!formLogin.valid" color="primary" type="submit">Iniciar
+                            Sesión</button>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
 </div>
