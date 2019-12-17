@@ -32,6 +32,52 @@ namespace PI.CursoAngular.API.Controllers
         }
 
         [Authorize]
+        [HttpGet]
+        [Route("lista")]
+        public async Task<IActionResult> Lista()
+        {
+            try
+            {
+                var clientes = await _cliRepository.ObtenerClientes();
+
+                var retClientes = _mapper.Map<IEnumerable<Clientes>, IEnumerable<MCliente>>(clientes);
+
+                return Ok(retClientes);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, e.Message);
+                return StatusCode(500, e);
+            }
+        }
+
+        [Authorize]
+        [HttpGet]
+        [Route("cliente/{id}")]
+        public async Task<IActionResult> RecuperarClienteXId(int id)
+        {
+            try
+            {
+                // Recuperamos el cliente de la base
+                Clientes clienteDB = await _cliRepository.ObtenerClientePorIdAsync(id);
+
+                if (clienteDB == null)
+                {
+                    return NotFound("El cliente no existe");
+                }
+
+                var retClientes = _mapper.Map<Clientes, MCliente>(clienteDB);
+
+                return Ok(retClientes);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, e.Message);
+                return StatusCode(500, e);
+            }
+        }
+
+        [Authorize]
         [HttpPost]
         [Route("agregar")]
         public async Task<IActionResult> AgregarCliente(MCliente cli)
@@ -44,27 +90,6 @@ namespace PI.CursoAngular.API.Controllers
                 await _unitOfWork.CompleteAsync();
 
                 return Ok();
-            }
-            catch (Exception e)
-            {
-                _logger.LogError(e, e.Message);
-                return StatusCode(500, e);
-            }
-        }
-
-
-        [Authorize]
-        [HttpGet]
-        [Route("lista")]
-        public async Task<IActionResult> Lista()
-        {
-            try
-            {
-                var clientes = await _cliRepository.ObtenerClientes();
-
-                var retClientes = _mapper.Map<IEnumerable<Clientes>, IEnumerable<MCliente>>(clientes);
-
-                return Ok(retClientes);
             }
             catch (Exception e)
             {
@@ -94,6 +119,34 @@ namespace PI.CursoAngular.API.Controllers
 
                 var result = _mapper.Map<Clientes, MCliente>(clienteDB);
                 return Ok(result);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, e.Message);
+                return StatusCode(500, e);
+            }
+        }
+
+        [Authorize]
+        [HttpDelete]
+        [Route("eliminar/{id}")]
+        public async Task<IActionResult> EliminarCliente(int id)
+        {
+            try
+            {
+                // Recuperamos el cliente de la base
+                Clientes clienteDB = await _cliRepository.ObtenerClientePorIdAsync(id);
+
+                if (clienteDB == null)
+                {
+                    return NotFound("El cliente no existe");
+                }
+
+                _cliRepository.EliminarCliente(clienteDB);
+
+                await _unitOfWork.CompleteAsync();
+
+                return Ok();
             }
             catch (Exception e)
             {

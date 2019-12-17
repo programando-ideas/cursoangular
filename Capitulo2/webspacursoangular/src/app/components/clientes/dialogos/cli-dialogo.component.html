@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{data.titulo}}</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.dato">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" [mat-dialog-close]="data">Aceptar</button>
+    <button mat-raised-button (click)="cancelar()">Cancelar</button>
+</div>

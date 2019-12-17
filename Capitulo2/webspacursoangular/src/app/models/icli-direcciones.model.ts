@@ -1,4 +1,4 @@
 export interface ICliDirecciones {
     id: number;
-    direcciones: string;
+    direccion: string;
 }

@@ -1,1 +1,116 @@
-<p>cli-add works!</p>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Nuevo</mat-card-title>
+        <mat-card-subtitle>Cliente</mat-card-subtitle>
+        <mat-icon style="font-size: 50px;" aria-hidden="false" aria-label="Agregar Cliente">person_add</mat-icon>
+    </mat-card-header>
+    <mat-card-content>
+        <div fxLayout="row" fxLayoutAlign="center center" *ngIf="cargando">
+            <mat-progress-spinner class="example-margin" color="primary" mode="indeterminate">
+            </mat-progress-spinner>
+        </div>
+        <div class="mat-elevation-z8 basic-container">
+            <form [formGroup]="formAgregarCliente">
+                <!-- Datos del cliente -->
+                <mat-grid-list cols="2" rowHeight="100px" gutterSize="50px">
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <input matInput placeholder="Nombre" type="text" formControlName="nombre" [errorStateMatcher]="matcher" />
+                            <mat-error *ngIf="hasError('nombre', 'required')">
+                                Ingrese el Nombre
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <input matInput placeholder="Apellido" type="text" formControlName="apellido" [errorStateMatcher]="matcher">
+                            <mat-error *ngIf="hasError('apellido', 'required')">
+                                Ingrese el Apellido
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <mat-form-field>
+                            <input matInput [max]="maxDate" [matDatepicker]="picker" formControlName="fechaDeNacimiento" placeholder="Fecha de Nacimiento">
+                            <mat-error *ngIf="hasError('fechaDeNacimiento', 'required')">
+                                Ingrese la Fecha de Nacimiento
+                            </mat-error>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </form>
+
+            <!-- Direcciones y Telefonos -->
+            <mat-grid-list cols="2" rowHeight="2:1" gutterSize="50px">
+                <mat-grid-tile>
+                    <mat-card class="mat-elevation-z8" style="width: 100%; padding: 0px!important;">
+                        <mat-card-header style="color: rgba(0, 0, 0, 0.54); background-color: rgba(0, 0, 0, 0.10);">
+                            <mat-card-title style="margin-top: 10px;">Direcciones</mat-card-title>
+                            <span class="toolbar-spacer"></span>
+                            <button mat-button (click)="AgregarDireccion()">
+                                <mat-icon aria-label="Agregar" aria-hidden="false">add</mat-icon>
+                            </button>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div style="margin: 15px;" *ngIf="direcciones.length == 0" fxLayout="row" fxLayoutAlign="center">
+                                Todavía no ha ingresado direcciones para este cliente.
+                            </div>
+                            <mat-list>
+                                <mat-list-item *ngFor="let dir of direcciones">
+                                    <mat-icon mat-list-icon>house</mat-icon>
+                                    <h4 mat-line>{{dir.direccion}}</h4>
+                                    <button mat-icon-button (click)="EditarDireccion(dir)">
+                                        <mat-icon aria-label="Editar">edit</mat-icon>
+                                    </button>
+                                    <button mat-icon-button (click)="BorrarDireccion(dir)">
+                                        <mat-icon aria-label="Delete">delete</mat-icon>
+                                    </button>
+                                </mat-list-item>
+                            </mat-list>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-card class="mat-elevation-z8" style="width: 100%; padding: 0px!important;">
+                        <mat-card-header style="color: rgba(0, 0, 0, 0.54); background-color: rgba(0, 0, 0, 0.10);">
+                            <mat-card-title style="margin-top: 10px;">Teléfonos</mat-card-title>
+                            <span class="toolbar-spacer"></span>
+                            <button mat-button (click)="AgregarTelefono()">
+                                <mat-icon aria-label="Agregar" aria-hidden="false">add</mat-icon>
+                            </button>
+                        </mat-card-header>
+                        <mat-card-content>
+                            <div style="margin: 15px;" *ngIf="telefonos.length == 0" fxLayout="row" fxLayoutAlign="center">
+                                Todavía no ha ingresado teléfonos para este cliente.
+                            </div>
+                            <mat-list>
+                                <mat-list-item *ngFor="let tel of telefonos">
+                                    <mat-icon mat-list-icon>house</mat-icon>
+                                    <h4 mat-line>{{tel.telefono}}</h4>
+                                    <button mat-icon-button (click)="EditarTelefono(tel)">
+                                        <mat-icon aria-label="Editar">edit</mat-icon>
+                                    </button>
+                                    <button mat-icon-button (click)="BorrarTelefono(tel)">
+                                        <mat-icon aria-label="Delete">delete</mat-icon>
+                                    </button>
+                                </mat-list-item>
+                            </mat-list>
+                        </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <!-- Botones -->
+            <div fxLayout="row" fxLayoutAlign="start center">
+                <div class="button">
+                    <button mat-raised-button [disabled]="!formAgregarCliente.valid" (click)="AgregarCliente()" color="primary" type="submit">Guardar</button>
+                </div>
+                <div class="button">
+                    <button mat-raised-button color="Accent" (click)="cancelar()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

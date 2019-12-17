@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -15,6 +15,8 @@ import { MaterialModule } from './modules/material.module';
 import { CliListaComponent } from './components/clientes/cli-lista.component';
 import { CliAddComponent } from './components/clientes/cli-add.component';
 import { CliEditComponent } from './components/clientes/cli-edit.component';
+import { CliDialogoComponent } from './components/clientes/dialogos/cli-dialogo.component';
+import { CliDialogoBorrarComponent } from './components/clientes/dialogos/cli-dialogo-borrar.component';
 
 @NgModule({
   declarations: [
@@ -25,17 +27,21 @@ import { CliEditComponent } from './components/clientes/cli-edit.component';
     PageNotFoundComponent,
     CliListaComponent,
     CliAddComponent,
-    CliEditComponent
+    CliEditComponent,
+    CliDialogoComponent,
+    CliDialogoBorrarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule 
+    FlexLayoutModule
   ],
+  entryComponents: [CliDialogoComponent, CliDialogoBorrarComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

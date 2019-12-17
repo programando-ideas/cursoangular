@@ -22,10 +22,15 @@ mat-card-content {
 .button {
     display: flex;
     justify-content: flex-end;
+    margin-right: 8px;
 }
 
 .toolbar-spacer {
     flex: 1 1 auto;
+}
+
+.basic-container {
+    padding: 30px;
 }
 
 

@@ -35,7 +35,7 @@ namespace PI.CursoAngular.API
                         clienteDB.CliDirecciones.Remove(dirB);
 
                     // insert
-                    var direccionesAgregar = clienteCRUD.Direcciones.Where(mDir => mDir.Id == 0).ToList();
+                    var direccionesAgregar = clienteCRUD.Direcciones.Where(mDir => mDir.Id <= 0).ToList();
                     foreach (var dirA in direccionesAgregar)
                         clienteDB.CliDirecciones.Add(new CliDirecciones() { Direccion = dirA.Direccion });
 
@@ -47,17 +47,18 @@ namespace PI.CursoAngular.API
                     ///////////////
                     // Telefonos //
                     ///////////////
+                    //delete
                     ids = clienteCRUD.Telefonos.Select(tel => tel.Id).ToList(); //Array de ids
                     var telefonosBorrar = clienteDB.CliTelefonos.Where(tel => !ids.Contains(tel.Id)).ToList();
                     foreach (var telB in telefonosBorrar)
                         clienteDB.CliTelefonos.Remove(telB);
 
-                    //Agregar
-                    var telefonosAgregar = clienteCRUD.Telefonos.Where(mTel => mTel.Id == 0).ToList();
+                    //insert
+                    var telefonosAgregar = clienteCRUD.Telefonos.Where(mTel => mTel.Id <= 0).ToList();
                     foreach (var telA in telefonosAgregar)
                         clienteDB.CliTelefonos.Add(new CliTelefonos() { Telefono = telA.Telefono });
 
-                    //Actualizar
+                    //update
                     var telefonosActualizar = clienteDB.CliTelefonos.Where(tel => ids.Contains(tel.Id) && tel.Id > 0).ToList();
                     foreach (var telU in telefonosActualizar)
                         telU.Telefono = clienteCRUD.Telefonos.Where(tel => tel.Id == telU.Id).First().Telefono;

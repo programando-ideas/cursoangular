@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PI.CursoAngular.API.Models
 {
@@ -8,7 +9,7 @@ namespace PI.CursoAngular.API.Models
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public int Edad { get; set; }
-        public string FechaDeNacimiento { get; set; }
+        public DateTime FechaDeNacimiento { get; set; }
         public IEnumerable<MCliDirecciones> Direcciones { get; set; }
         public IEnumerable<MCliTelefonos> Telefonos { get; set; }
     }

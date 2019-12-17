@@ -7,6 +7,8 @@ import { MatPaginatorIntl, MatPaginator } from '@angular/material/paginator';
 import { MatPaginatorIntlCro } from 'src/app/models/mat-paginator-intl-cro';
 import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { CliDialogoBorrarComponent } from './dialogos/cli-dialogo-borrar.component';
 
 @Component({
   selector: 'app-cli-lista',
@@ -25,7 +27,8 @@ export class CliListaComponent implements OnInit, OnDestroy {
 
   constructor(
     private dataService: DataService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -52,9 +55,45 @@ export class CliListaComponent implements OnInit, OnDestroy {
     this.router.navigate(['/cliedit', e.id]);
   }
 
-  borrar(e) {
-    console.log('borrar', e);
+  borrar(cli: ICliente) {
+    const dialogRef = this.dialog.open(CliDialogoBorrarComponent, {
+      width: '350px',
+      data: {
+        id: cli.id,
+        titulo: '¿Desea eliminar el cliente "' + cli.nombre + ' ' + cli.apellido + '"?',
+        dato: 'Si continua no podra recuperar los cambios.'
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.id > 0) {
+        this.BorrarCliente(cli);
+      }
+    });
   }
+
+  BorrarCliente(cli: ICliente) {
+    this.cargando = true;
+
+    const url = 'http://localhost:50000/api/clientes/eliminar/' + cli.id;
+    this.subRef$ = this.dataService.delete<ICliente>(url)
+      .subscribe(res => {
+        const index: number = this.clientes.data.findIndex(d => d === cli);
+        console.log(this.clientes.data.findIndex(d => d === cli));
+        this.clientes.data.splice(index, 1);
+
+        this.clientes = new MatTableDataSource<ICliente>(this.clientes.data);
+        this.clientes.paginator = this.paginator;
+        this.clientes.sort = this.sort;
+
+        console.log('Cliente eliminado');
+        this.cargando = false;
+      }, err => {
+        console.log('Error al actualizar el cliente', err);
+        this.cargando = false;
+      });
+  }
+
 
   agregar() {
     this.router.navigate(['/cliadd']);
