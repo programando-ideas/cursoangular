@@ -24,9 +24,9 @@
     * 2.2.2 [Parte II - Angular Material](https://youtu.be/vLnA9uu7fOE)
     * 2.2.3.1 [Parte III.1 - API .net core + EF](https://youtu.be/LnxXh_G3qdA)
     * 2.2.3.2 [Parte III.2 - API .net core + EF](https://youtu.be/E3MsbWd2j-8)
-  * 2.3: Angular - Entidad "Clientes" --> Operaciones CRUD
-    * 2.3.1 [Lista de Clientes y algo de material](https://youtu.be/4sE8yalPsQ0)
-    * 2.3.2 CRUD sobre la entidad Cliente (Proximamente)
+  * 2.3: Angular - CRUD sobre la Entidad "Clientes" --> Operaciones CRUD
+    * 2.3.1 [Parte I - Lista con paginado y orden](https://youtu.be/4sE8yalPsQ0)
+    * 2.3.2 [PArte II - Alta, Baja y Modificaciones](https://youtu.be/AFU8tNEN5rc)
   * 2.4: Seguridad
     * HTTP Interceptor y CanActivate en rutas (Proximamente)
     * XSS y XSRF (Proximamente)
