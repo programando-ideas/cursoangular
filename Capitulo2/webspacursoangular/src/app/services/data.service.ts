@@ -61,10 +61,10 @@ export class DataService {
   getHeaders(): HttpHeaders {
     let httpHeaders: HttpHeaders = new HttpHeaders();
 
-    const token = this.securityService.GetToken();
-    if (token) {
-      httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + token);
-    }
+    // const token = this.securityService.GetToken();
+    // if (token) {
+    //   httpHeaders = httpHeaders.append('Authorization', 'Bearer ' + token);
+    // }
 
     return httpHeaders;
   }

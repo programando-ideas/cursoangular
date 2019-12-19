@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,7 @@ import { CliAddComponent } from './components/clientes/cli-add.component';
 import { CliEditComponent } from './components/clientes/cli-edit.component';
 import { CliDialogoComponent } from './components/clientes/dialogos/cli-dialogo.component';
 import { CliDialogoBorrarComponent } from './components/clientes/dialogos/cli-dialogo-borrar.component';
+import { JwtInterceptor } from './services/auth/jwt-interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,12 @@ import { CliDialogoBorrarComponent } from './components/clientes/dialogos/cli-di
     FlexLayoutModule
   ],
   entryComponents: [CliDialogoComponent, CliDialogoBorrarComponent],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

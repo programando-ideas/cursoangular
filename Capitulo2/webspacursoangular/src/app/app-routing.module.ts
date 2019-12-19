@@ -6,14 +6,15 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { CliListaComponent } from './components/clientes/cli-lista.component';
 import { CliEditComponent } from './components/clientes/cli-edit.component';
 import { CliAddComponent } from './components/clientes/cli-add.component';
+import { AuthGuard } from './services/auth/auth-guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'clilista', component: CliListaComponent },
-  { path: 'cliedit/:id', component: CliEditComponent },
-  { path: 'cliadd', component: CliAddComponent },
+  { path: 'clilista', component: CliListaComponent, canActivate: [AuthGuard] },
+  { path: 'cliedit/:id', component: CliEditComponent, canActivate: [AuthGuard] },
+  { path: 'cliadd', component: CliAddComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent }
 ];
 
