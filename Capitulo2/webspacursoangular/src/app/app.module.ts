@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpClientXsrfModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,7 @@ import { CliEditComponent } from './components/clientes/cli-edit.component';
 import { CliDialogoComponent } from './components/clientes/dialogos/cli-dialogo.component';
 import { CliDialogoBorrarComponent } from './components/clientes/dialogos/cli-dialogo-borrar.component';
 import { JwtInterceptor } from './services/auth/jwt-interceptor';
+import { EjemploXSSComponent } from './components/ejemplo-xss/ejemplo-xss.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { JwtInterceptor } from './services/auth/jwt-interceptor';
     CliAddComponent,
     CliEditComponent,
     CliDialogoComponent,
-    CliDialogoBorrarComponent
+    CliDialogoBorrarComponent,
+    EjemploXSSComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { JwtInterceptor } from './services/auth/jwt-interceptor';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    HttpClientXsrfModule,
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule

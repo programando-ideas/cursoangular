@@ -9,6 +9,7 @@ import { CliDialogoComponent } from './dialogos/cli-dialogo.component';
 import { Subscription } from 'rxjs';
 import { ICliente } from 'src/app/models/icliente';
 import { DataService } from 'src/app/services/data.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cli-add',
@@ -59,7 +60,7 @@ export class CliAddComponent implements OnInit, OnDestroy {
     console.log('datosCliente', datosCliente);
 
     this.cargando = true;
-    const url = 'http://localhost:50000/api/clientes/agregar';
+    const url = environment.urlAPI + 'api/clientes/agregar';
     this.subRef$ = this.dataService.post<ICliente>(url,
       datosCliente)
       .subscribe(res => {

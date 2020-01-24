@@ -7,6 +7,7 @@ import { CliListaComponent } from './components/clientes/cli-lista.component';
 import { CliEditComponent } from './components/clientes/cli-edit.component';
 import { CliAddComponent } from './components/clientes/cli-add.component';
 import { AuthGuard } from './services/auth/auth-guard';
+import { EjemploXSSComponent } from './components/ejemplo-xss/ejemplo-xss.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'clilista', component: CliListaComponent, canActivate: [AuthGuard] },
   { path: 'cliedit/:id', component: CliEditComponent, canActivate: [AuthGuard] },
   { path: 'cliadd', component: CliAddComponent, canActivate: [AuthGuard] },
+  { path: 'xss', component: EjemploXSSComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

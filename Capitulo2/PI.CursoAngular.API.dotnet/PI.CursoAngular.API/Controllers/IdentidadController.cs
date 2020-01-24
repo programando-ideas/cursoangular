@@ -73,7 +73,7 @@ namespace PI.CursoAngular.API.Controllers
                 audience: ValidAudience,
                 claims: claims,
                 expires: dtFechaExpiraToken,
-                notBefore: DateTime.UtcNow,
+                notBefore: now,
                 signingCredentials: new SigningCredentials(IssuerSigningKey, SecurityAlgorithms.HmacSha256)
             );
         }

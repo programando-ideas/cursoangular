@@ -1,13 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,7 +15,12 @@ using PI.CursoAngular.Repo.MariaDB.DBModelClientes;
 using PI.CursoAngular.Repo.MariaDB.Interfaces;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Serilog;
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 // using static: https://docs.microsoft.com/es-mx/dotnet/csharp/language-reference/keywords/using-static
 using static PI.CursoAngular.API.Constantes;
 
@@ -37,6 +38,11 @@ namespace PI.CursoAngular.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddAntiforgery(options =>
+            {
+                options.HeaderName = "X-XSRF-TOKEN";
+                options.SuppressXFrameOptionsHeader = false;
+            });
 
             //Autenticacion
             services.AddAuthentication(options =>
@@ -82,10 +88,10 @@ namespace PI.CursoAngular.API
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins(new[] 
-                    { 
+                    builder => builder.WithOrigins(new[]
+                    {
                         "http://localhost:4200",
-                        "http://localhost:5500" 
+                        "http://localhost:5500"
                     })
                     .AllowAnyMethod()
                     .AllowAnyHeader()
@@ -114,7 +120,8 @@ namespace PI.CursoAngular.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,
+                              ILoggerFactory loggerFactory, IAntiforgery antiforgery)
         {
             if (env.IsDevelopment())
             {
@@ -128,6 +135,24 @@ namespace PI.CursoAngular.API
              * the calls to UseRouting and UseEndpoints to be effective.*/
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.Use(next => context =>
+            {
+                string path = context.Request.Path.Value;
+
+                if (path != null && path.ToLower().Contains("/api"))
+                {
+                    var tokens = antiforgery.GetAndStoreTokens(context);
+                    context.Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken,
+                        new CookieOptions()
+                        {
+                            HttpOnly = false
+                        });
+                }
+
+                return next(context);
+            });
+
             app.UseCors("CorsPolicy");
 
             loggerFactory.AddSerilog();

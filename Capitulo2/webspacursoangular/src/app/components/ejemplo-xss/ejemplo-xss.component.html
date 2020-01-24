@@ -1,0 +1,26 @@
+<h1>Ejemplo XSS</h1>
+
+<!-- TEMPLATE SYNTAX - DIRECTIVA -->
+<div style="border: 1px solid green; margin: 10px; padding: 10px;">
+    <h4>Pruebas en template syntax y directiva [innerHTML]</h4>
+    <p>{{htmlSnippet}}</p>
+    <p [innerHTML]="htmlSnippet"></p>
+</div>
+
+<!-- a HREF -->
+<div style="border: 1px solid blue; margin: 10px; padding: 10px;">
+    <h4>Pruebas en a</h4>
+    <p><a [href]="dangerousUrl">URL no confiable</a></p>
+    <p><a [href]="trustedUrl">URL confiable</a></p>
+</div>
+
+<!-- IFRAME -->
+<div style="border: 1px solid red; margin: 10px; padding: 10px; height:250px;">
+    <h4>Pruebas en iframe {{dangerousVideoUrl}}</h4>
+    <div style="float: left;">Trusted:
+        <iframe width="320" height="180" [src]="videoUrl"></iframe>
+    </div>
+    <div style="float: left; margin-left: 20px;">Untrusted:
+        <iframe width="320" height="180" [src]="dangerousVideoUrl"></iframe>
+    </div>
+</div>

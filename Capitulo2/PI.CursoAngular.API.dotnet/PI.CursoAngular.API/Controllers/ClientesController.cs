@@ -8,6 +8,8 @@ using PI.CursoAngular.Repo.MariaDB.Interfaces;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 using PI.CursoAngular.Repo.MariaDB.DBModelClientes;
+using Microsoft.AspNetCore.Antiforgery;
+using PI.CursoAngular.API.Seguridad;
 
 namespace PI.CursoAngular.API.Controllers
 {
@@ -19,16 +21,19 @@ namespace PI.CursoAngular.API.Controllers
         private readonly IClientesRepository _cliRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ILogger<ClientesController> _logger;
+        private readonly IAntiforgery _antiforgery;
 
         public ClientesController(IMapper mapper, 
                                   IClientesRepository cliRepository,
                                   IUnitOfWork unitOfWork,
-                                  ILogger<ClientesController> logger) 
+                                  ILogger<ClientesController> logger,
+                                  IAntiforgery antiforgery) 
         {
-            this._mapper = mapper;
-            this._cliRepository = cliRepository;
-            this._unitOfWork = unitOfWork;
-            this._logger = logger;
+            _mapper = mapper;
+            _cliRepository = cliRepository;
+            _unitOfWork = unitOfWork;
+            _logger = logger;
+            _antiforgery = antiforgery;
         }
 
         [Authorize]
@@ -80,6 +85,7 @@ namespace PI.CursoAngular.API.Controllers
         [Authorize]
         [HttpPost]
         [Route("agregar")]
+        [CSRFVerify]
         public async Task<IActionResult> AgregarCliente(MCliente cli)
         {
             try
@@ -101,6 +107,7 @@ namespace PI.CursoAngular.API.Controllers
         [Authorize]
         [HttpPost]
         [Route("actualizar")]
+        [CSRFVerify]
         public async Task<IActionResult> ActualizarCliente(MCliente clienteCRUD)
         {
             try

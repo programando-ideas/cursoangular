@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 import { SecurityService } from 'src/app/services/security.service';
 import { ErrorStateMatcher1 } from '../error-state-matcher1';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -51,7 +52,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       password: this.formLogin.value.password,
     };
 
-    const url = 'http://localhost:50000/api/identidad/login';
+    const url = environment.urlAPI + 'api/identidad/login';
     this.subRef$ = this.dataService.post<IResponse>(url,
       usuarioLogin)
       .subscribe(res => {

@@ -9,6 +9,7 @@ import { ICliTelefonos } from 'src/app/models/icli-telefonos.model';
 import { ICliDirecciones } from 'src/app/models/icli-direcciones.model';
 import { ErrorStateMatcher1 } from '../error-state-matcher1';
 import { CliDialogoComponent } from './dialogos/cli-dialogo.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cli-edit',
@@ -56,7 +57,7 @@ export class CliEditComponent implements OnInit, OnDestroy {
       this.idCliente = +params.id;
       console.log('Editar el cliente con id', params.id);
 
-      const url = 'http://localhost:50000/api/clientes/cliente/' + this.idCliente.toString();
+      const url = environment.urlAPI + 'api/clientes/cliente/' + this.idCliente.toString();
       this.subRef$ = this.dataService.get<ICliente>(url)
         .subscribe(res => {
           this.cargando = false;
@@ -95,7 +96,7 @@ export class CliEditComponent implements OnInit, OnDestroy {
     console.log('datosCliente', datosCliente);
 
     this.cargando = true;
-    const url = 'http://localhost:50000/api/clientes/actualizar';
+    const url = environment.urlAPI + 'api/clientes/actualizar';
     this.subRef$ = this.dataService.post<ICliente>(url,
       datosCliente)
       .subscribe(res => {

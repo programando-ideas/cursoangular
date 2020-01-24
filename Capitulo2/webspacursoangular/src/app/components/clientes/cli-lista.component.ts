@@ -9,6 +9,7 @@ import { MatSort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CliDialogoBorrarComponent } from './dialogos/cli-dialogo-borrar.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-cli-lista',
@@ -32,7 +33,7 @@ export class CliListaComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    const url = 'http://localhost:50000/api/clientes/lista';
+    const url = environment.urlAPI + 'api/clientes/lista';
     this.subRef$ = this.dataService.get<ICliente[]>(url)
       .subscribe(res => {
         this.cargando = false;
@@ -75,7 +76,7 @@ export class CliListaComponent implements OnInit, OnDestroy {
   BorrarCliente(cli: ICliente) {
     this.cargando = true;
 
-    const url = 'http://localhost:50000/api/clientes/eliminar/' + cli.id;
+    const url = environment.urlAPI + 'api/clientes/eliminar/' + cli.id;
     this.subRef$ = this.dataService.delete<ICliente>(url)
       .subscribe(res => {
         const index: number = this.clientes.data.findIndex(d => d === cli);
