@@ -28,8 +28,8 @@
     * 2.3.1 [Parte I - Lista con paginado y orden](https://youtu.be/4sE8yalPsQ0)
     * 2.3.2 [Parte II - Alta, Baja y Modificaciones](https://youtu.be/AFU8tNEN5rc)
   * 2.4: Seguridad
-    * HTTP Interceptor y CanActivate en rutas (Proximamente)
-    * XSS y XSRF (Proximamente)
+    * 2.4.1 [HTTP Interceptor y CanActivate en rutas](https://youtu.be/cO0lL49TV8Y)
+    * 2.4.2 XSS Cross-site scripting y CSRF Cross-site request forgery (Proximamente)
 
  
  ##
