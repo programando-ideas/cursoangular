@@ -3,6 +3,8 @@
 ## Índice
   ### [Curso de Angular: Presentación](https://youtu.be/HTrsaCN3-uk)
   
+* OffTopic
+  * [Como migrar a ANGULAR 9](https://youtu.be/SjN64hTByo0)
 * Capítulo 1 (Fundamentos de Angular)
   * 1.1: [¿Qué es Angular?](https://youtu.be/WT-fi0rrh4o)
   * 1.2: [Instalación/Configuración + 1er Proyecto](https://youtu.be/gYA9xmnf0oY)
@@ -30,6 +32,9 @@
   * 2.4: Seguridad
     * 2.4.1 [Parte I - HTTP Interceptor y CanActivate en rutas](https://youtu.be/cO0lL49TV8Y)
     * 2.4.2 [Parte II - XSS Cross-site scripting y CSRF Cross-site request forgery](https://youtu.be/qgoxoqiwdbQ)
+  * 2.5: Deploy del proyecto (Angular + WebApi .net core)
+    * 2.5.1 Sobre Windows 10 y Windows Server (Proximamente)
+    * 2.5.2 Sobre Ubuntu 19 (Proximamente)
 
  
  ##
