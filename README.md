@@ -38,10 +38,8 @@
 
  
  ##
- **Programando Ideas 2019**
+ **Programando Ideas 2020**
+  <a href="https://paypal.me/lp8126" target="_blank">
+    <img src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_donateCC_LG.gif" border="0" alt="Donar con PayPal" />
+  </a>
  ##
- <a href="https://www.buymeacoffee.com/CFVh8qe" target="_blank"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
- 
- <a href="https://paypal.me/lp8126" target="_blank">
-  <img alt="Donar via PayPal" style="height: 50px !important;" src="https://github.com/programando-ideas/cursoangular/blob/master/imagenes/paypal.png"/>
-</a>
