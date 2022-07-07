@@ -15,7 +15,7 @@
         "express": "^4.17.1",
         "helmet": "^3.21.2",
         "jsonwebtoken": "^8.5.1",
-        "moment": "^2.24.0",
+        "moment": "^2.29.4",
         "morgan": "^1.9.1"
     },
     "devDependencies": {
